@@ -14,15 +14,14 @@
  */
 
 /**
- * Define Global Variables
- * 
+ *  Global Variables
  */
-
+const sectionElements = document.getElementsByTagName("section");
+const backToTopBtn = document.getElementById("back_to_top_btn");
+const navbar_list = document.getElementById("navbar__list");
 
 /**
- * End Global Variables
- * Start Helper Functions
- * 
+ *  Helper Functions
  */
 
 const isElementAtViewPortTop = (element) => {
@@ -30,36 +29,31 @@ const isElementAtViewPortTop = (element) => {
 };
 
 /**
- * End Helper Functions
- * Begin Main Functions
- * 
+ * Main Functions
  */
 
 // build the nav
-const sectionElements = document.getElementsByTagName("section");
-const backToTopBtn = document.getElementById("back_to_top_btn");
-const navbar_list = document.getElementById("navbar__list");
+function buildNavBar() {
+    const sectionsListFragment = document.createDocumentFragment();
 
-for (let element of sectionElements) {
-    const li_element = document.createElement("li");
-    li_element.textContent = element.dataset.nav;
+    for (let element of sectionElements) {
+        const li_element = document.createElement("li");
+        li_element.textContent = element.dataset.nav;
+        sectionsListFragment.appendChild(li_element);
 
-    li_element.addEventListener('click', (event) => {
-        console.log('A paragraph was clicked.');
-        element.scrollIntoView({ behavior: 'smooth' });
-    });
+        li_element.addEventListener('click', () => {
+            element.scrollIntoView({ behavior: 'smooth' });
+        });
+    };
 
-    //add fragment
-    navbar_list.appendChild(li_element);
+    navbar_list.appendChild(sectionsListFragment);
+}
 
-    console.log(element.dataset.nav);
-};
+buildNavBar();
 
 
 // Add class 'active' to section when near top of viewport
-
-
-document.addEventListener('scroll', event => {
+const setActiveSection = () => {
     for (let element of sectionElements) {
         if (isElementAtViewPortTop(element)) {
             element.classList.add("your-active-class");
@@ -67,10 +61,12 @@ document.addEventListener('scroll', event => {
             element.classList.remove("your-active-class");
         }
     };
-});
+}
 
+
+// hide and Reveal back to top button
 let btnHideTimer;
-document.addEventListener("scroll", event => {
+const showBackToTopBtn = () => {
     if (document.body.scrollTop > 27 || document.documentElement.scrollTop > 27) {
         backToTopBtn.classList.remove("hide");
         clearTimeout(btnHideTimer);
@@ -80,19 +76,14 @@ document.addEventListener("scroll", event => {
     } else {
         backToTopBtn.classList.add("hide");
     }
-})
-
-// Scroll to anchor ID using scrollTO event
-
+}
 
 /**
- * End Main Functions
- * Begin Events
+ *  Events
  * 
  */
 
-// Build menu 
-
-// Scroll to section on link click
-
-// Set sections as active
+document.addEventListener('scroll', () => {
+    setActiveSection();
+    showBackToTopBtn();
+});
