@@ -258,10 +258,10 @@ section.your-active-class .landing__container::after {
 
 .float {
     position: fixed;
-    width: 60px;
-    height: 60px;
-    bottom: 40px;
-    right: 40px;
+    width: 3em;
+    height: 3em;
+    bottom: 1.5em;
+    right: 1.5em;
     background-color: #0C9;
     color: #FFF;
     border-radius: 50px;
@@ -270,7 +270,7 @@ section.your-active-class .landing__container::after {
 }
 
 .my-float {
-    margin-top: 0.7em;
+    margin-top: 0.5em;
     font-size: 24px;
 }
 
