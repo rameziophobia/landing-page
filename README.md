@@ -2,12 +2,15 @@
 
 ## Table of Contents
 
-* [Instructions](#instructions)
+  - [Description](#description)
+  - [Instructions](#instructions)
+  - [Starter code](#starter-code)
+
+## Description
+Simple landing page with a dynamic navigation bar, built using javascript, html and css.
 
 ## Instructions
+a live version is hosted on github pages [here](https://rameziophobia.github.io/landing-page/)
 
-The starter project has some HTML and CSS styling to display a static version of the Landing Page project. You'll need to convert this project from a static project to an interactive one. This will require modifying the HTML and CSS files, but primarily the JavaScript file.
-
-To get started, open `js/app.js` and start building out the app's functionality
-
-For specific, detailed instructions, look at the project instructions in the Udacity Classroom.
+## Starter code
+this project is part of udacity front end nanodegree, starter code can be found [here](https://github.com/udacity/fend/tree/refresh-2019/projects/landing-page)
