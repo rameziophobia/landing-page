@@ -16,6 +16,7 @@
 /**
  *  Global Variables
  */
+
 const sectionElements = document.getElementsByTagName("section");
 const backToTopBtn = document.getElementById("back_to_top_btn");
 const navbar_list = document.getElementById("navbar__list");
@@ -45,7 +46,7 @@ function buildNavBar() {
         li_element.addEventListener('click', () => {
             element.scrollIntoView({ behavior: 'smooth' });
         });
-    };
+    }
 
     navbar_list.appendChild(sectionsListFragment);
 }
@@ -55,7 +56,7 @@ buildNavBar();
 
 // Add class 'active' to section when near top of viewport
 const setActiveSection = () => {
-    li_elements = navbar_list.children;
+    const li_elements = navbar_list.children;
     let index = 0;
     for (let element of sectionElements) {
         if (isElementAtViewPortTop(element)) {
@@ -66,7 +67,7 @@ const setActiveSection = () => {
             li_elements[index].classList.remove("your-active-class");
         }
         index++;
-    };
+    }
 }
 
 
