@@ -25,7 +25,8 @@ const navbar_list = document.getElementById("navbar__list");
  */
 
 const isElementAtViewPortTop = (element) => {
-    return element.getBoundingClientRect().top <= 70;
+    return element.getBoundingClientRect().top <= 70 &&
+        element.getBoundingClientRect().bottom >= 0;
 };
 
 /**
@@ -54,12 +55,17 @@ buildNavBar();
 
 // Add class 'active' to section when near top of viewport
 const setActiveSection = () => {
+    li_elements = navbar_list.children;
+    let index = 0;
     for (let element of sectionElements) {
         if (isElementAtViewPortTop(element)) {
             element.classList.add("your-active-class");
+            li_elements[index].classList.add("your-active-class");
         } else {
             element.classList.remove("your-active-class");
+            li_elements[index].classList.remove("your-active-class");
         }
+        index++;
     };
 }
 
